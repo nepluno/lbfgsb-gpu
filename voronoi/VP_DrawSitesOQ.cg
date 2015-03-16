@@ -1,0 +1,48 @@
+/*
+Guodong Rong
+
+VP_Flood.cg
+The vertex program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+
+		  out float4 oPosition    : POSITION,
+		  out float  oConverged	  : TEXCOORD0,
+//		  out float4 test		  : TEXCOORD1,
+
+	 	  uniform float4x4 cameraModelViewProj : state.matrix.mvp,
+	 	  uniform samplerRECT siteTex      : TEXUNIT0,
+	 	  uniform samplerRECT processedTex : TEXUNIT1,
+		  uniform float2 size)
+{
+	int i, j;
+	float4 pos, target_pos, stored_pos;
+	float2 posRECT, error;
+	
+	pos = mul(cameraModelViewProj, position);
+	posRECT = position;
+
+	target_pos = texRECT(siteTex, posRECT);
+	target_pos.xy /= target_pos.w;
+
+	stored_pos = texRECT(processedTex, int2(target_pos)+float2(0.5, 0.5));	
+	
+	error = int2(target_pos.xy)-int2(stored_pos.xy);
+	
+	float threshold = 0.5;
+	
+	if (abs(error.x)<threshold && abs(error.y)<threshold)
+		oConverged = 1.0;
+	else
+		oConverged = 0.0;
+	
+	oPosition = pos;
+	
+//	test = float4(target_pos.xy, stored_pos.xy);
+} // main

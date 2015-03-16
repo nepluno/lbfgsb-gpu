@@ -1,0 +1,22 @@
+/*
+Guodong Rong
+
+FP_DrawSites.cg
+The fragment program for initialization
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position   : WPOS,
+		  float4 color      : COLOR,
+		  float  id			: TEXCOORD0,
+
+  		  out float4 oColor : COLOR)
+{
+	oColor.rg = position.xy;
+	oColor.b = id;
+//	oColor = id;
+} // main

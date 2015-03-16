@@ -1,0 +1,24 @@
+/*
+Guodong Rong
+
+FP_DrawSites.cg
+The fragment program for initialization
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position   : WPOS,
+		  float4 color      : COLOR,
+		  float  converged	: TEXCOORD0,
+//		  float4 test		: TEXCOORD1,
+
+  		  out float4 oColor : COLOR)
+{
+	if (converged==1.0)
+		discard;
+
+//	oColor = test;
+} // main

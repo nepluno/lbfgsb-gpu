@@ -1,0 +1,47 @@
+/*
+Guodong Rong
+
+VP_Flood.cg
+The vertex program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+
+		  out float4 oPosition        : POSITION,
+		  out float3 oScatterValue	  : TEXCOORD0,
+
+	 	  uniform float4x4 cameraModelViewProj : state.matrix.mvp,
+		  uniform samplerRECT processedTex : TEXUNIT0,
+		  uniform float2 size)
+{
+	float4 pos; 
+	float2 target_pos, diff_vec;
+	float4 stored_value;
+	float id, dist2;
+	
+	pos = mul(cameraModelViewProj, position);
+
+	stored_value = texRECT(processedTex, position.xy);
+	id = int(stored_value.b);
+	target_pos.y = floor(id/size.x);
+	target_pos.x = id-target_pos.y*size.x;
+	target_pos += 1.5;
+	oPosition = mul(cameraModelViewProj, float4(target_pos, 0.0, 1.0));
+
+	stored_value.x = stored_value.x / size.x * 2 - 1;
+	stored_value.y = stored_value.y / size.y * 2 - 1;
+	position.x = position.x / size.x * 2 - 1;
+	position.y = position.y / size.y * 2 - 1;
+
+	diff_vec = stored_value.xy-position.xy;
+	
+	dist2 = dot(diff_vec, diff_vec);
+
+	oScatterValue = float3(diff_vec, dist2) * (4.0 / size.x / size.y);
+//	oScatterValue = float3(id, size.x, floor(id/size.x));
+} // main

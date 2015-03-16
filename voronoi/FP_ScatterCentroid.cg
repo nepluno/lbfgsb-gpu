@@ -1,0 +1,21 @@
+/*
+Guodong Rong
+
+FP_Flood.cg
+The fragment program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position        : WPOS,
+		  float2 posRECT		 : TEXCOORD0,
+
+  		  out float4 oColor :COLOR,
+
+		  uniform samplerRECT  processedTex : TEXUNIT0)
+{
+	oColor = float4(posRECT, 1.0, 1.0);
+} // main

@@ -1,0 +1,32 @@
+/*
+Guodong Rong
+
+FP_FinalRender.cg
+The fragment program for final rendering
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position   : WPOS,
+
+  		  out float4 oColor : COLOR,
+
+		  uniform samplerRECT processedTex : TEXUNIT0,
+		  uniform float2 size)
+{
+	float2 stored_coord, diff_vec;
+	float dist2;
+
+	stored_coord = texRECT(processedTex, position.xy).rg;
+	diff_vec = stored_coord-position.xy;
+
+	diff_vec.x /= size.x;
+	diff_vec.y /= size.y;
+
+	dist2 = dot(diff_vec, diff_vec);
+
+	oColor = float4(dist2, dist2, dist2, 1.0);
+} // main

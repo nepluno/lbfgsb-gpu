@@ -1,0 +1,27 @@
+/*
+Guodong Rong
+
+VP_DrawSites.cg
+The vertex program for initialization
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+		  float4 color     : COLOR,
+
+			out float4 oPosition  : POSITION,
+			out float4 oColor     : COLOR,
+			out float  oId		  : TEXCOORD0,
+			out float2 oPos2D	  : TEXCOORD1,
+
+			uniform float4x4 cameraModelViewProj : state.matrix.mvp)
+{
+	oPosition = mul(cameraModelViewProj, position);
+	oColor = color;
+	oId = color.w;
+	oPos2D = position.xy;
+} // main

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Cg Vertex">
+      <UniqueIdentifier>{4c85d8bf-b277-48d2-8991-1a121314dd22}</UniqueIdentifier>
+      <Extensions>cg</Extensions>
+    </Filter>
+    <Filter Include="Cg Fragment">
+      <UniqueIdentifier>{3c175344-9f7d-4150-84dc-6cbcb254eec4}</UniqueIdentifier>
+      <Extensions>cg</Extensions>
+    </Filter>
+    <Filter Include="L-BFGS">
+      <UniqueIdentifier>{ce496e5e-25f3-4484-909d-679ef727f8ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="L-BFGS\kernel">
+      <UniqueIdentifier>{c11f5a93-079d-44d4-be79-f36f77db90ab}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="L-BFGS\lbfgsb.cpp">
+      <Filter>L-BFGS</Filter>
+    </ClCompile>
+    <ClCompile Include="voronoi.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="L-BFGS\lbfgsb.h">
+      <Filter>L-BFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="voronoi.h" />
+    <ClInclude Include="L-BFGS\lbfgsbcuda.h">
+      <Filter>L-BFGS</Filter>
+    </ClInclude>
+    <ClInclude Include="L-BFGS\cutil_inline.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="voronoi.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="VP_ComputeEnergy.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_ComputeEnergyCentroid.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_Deduction.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawNewSites.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawSites.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawSitesOQ.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_FinalRender.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_Flood.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_Scatter.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="VP_ScatterCentroid.cg">
+      <Filter>Cg Vertex</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_ComputeEnergy.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_ComputeEnergyCentroid.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_Deduction.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawNewSites.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawSites.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawSitesOQ.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_FinalRender.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_Flood.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_Scatter.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FP_ScatterCentroid.cg">
+      <Filter>Cg Fragment</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="L-BFGS\active.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\cauchy.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\cmprlb.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\formk.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\formt.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\lnsrlb.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\matupd.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\minimize.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\projgr.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\subsm.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\bmv.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="L-BFGS\dpofa.cu">
+      <Filter>L-BFGS\kernel</Filter>
+    </CudaCompile>
+    <CudaCompile Include="voronoi.cu" />
+  </ItemGroup>
+</Project>

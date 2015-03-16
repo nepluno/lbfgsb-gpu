@@ -1,0 +1,141 @@
+/*
+Guodong Rong
+
+FP_Flood.cg
+The fragment program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position        : WPOS,
+		  float4 neighborCoord01 : TEXCOORD0,
+		  float4 neighborCoord23 : TEXCOORD1,
+		  float4 neighborCoord56 : TEXCOORD2,
+		  float4 neighborCoord78 : TEXCOORD3,
+
+  		  out float4 oColor :COLOR,
+
+		  uniform samplerRECT  processedTex : TEXUNIT0)
+{
+	float3 stored_coord, NearestCoord;
+	float2 vector;
+	float dist_2, min_dist_2;
+
+	min_dist_2 = 10000000;
+
+	// Compute a criterion value using the information of itself	
+	stored_coord = texRECT(processedTex, position.xy).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor0	
+	stored_coord = texRECT(processedTex, neighborCoord01.xy).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor1	
+	stored_coord = texRECT(processedTex, neighborCoord01.zw).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor2	
+	stored_coord = texRECT(processedTex, neighborCoord23.xy).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor3	
+	stored_coord = texRECT(processedTex, neighborCoord23.zw).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor5	
+	stored_coord = texRECT(processedTex, neighborCoord56.xy).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor6	
+	stored_coord = texRECT(processedTex, neighborCoord56.zw).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor7	
+	stored_coord = texRECT(processedTex, neighborCoord78.xy).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+	// Compute a criterion value using the information of neighbor8	
+	stored_coord = texRECT(processedTex, neighborCoord78.zw).rgb;
+	if (stored_coord.x>-1)
+	{
+		vector = position.xy-stored_coord.xy;
+		dist_2 = dot(vector, vector);
+		if (dist_2<min_dist_2)
+		{
+			min_dist_2 = dist_2;
+			NearestCoord = stored_coord;
+		}
+	}
+
+	if (min_dist_2==10000000)
+		discard;
+	oColor.rgb = NearestCoord;
+} // main

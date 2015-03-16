@@ -1,0 +1,39 @@
+/*
+Guodong Rong
+
+VP_Flood.cg
+The vertex program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+
+		  out float4 oPosition        : POSITION,
+		  out float2 oPosRECT		  : TEXCOORD0,
+
+	 	  uniform float4x4 cameraModelViewProj : state.matrix.mvp,
+	 	  uniform samplerRECT processedTex : TEXUNIT0,
+		  uniform float2 size)
+{
+	float4 pos; 
+	float2 posRECT, target_pos;
+	int id;
+	
+	pos = mul(cameraModelViewProj, position);
+	posRECT = position.xy;
+
+	id = int(texRECT(processedTex, posRECT).b);
+	target_pos.y = floor(id/size.x);
+	target_pos.x = id-target_pos.y*size.x;
+	target_pos += 1.5;
+	oPosition = mul(cameraModelViewProj, float4(target_pos, 0.0, 1.0));
+
+//	oPosition = pos;
+	
+	oPosRECT = posRECT;
+	//oPosRECT = target_pos;
+} // main

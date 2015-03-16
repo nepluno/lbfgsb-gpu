@@ -1,0 +1,20 @@
+/*
+Guodong Rong
+
+VP_FinalRender.cg
+The vertex program for final rendering
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+
+			out float4 oPosition       : POSITION,
+
+			uniform float4x4 cameraModelViewProj : state.matrix.mvp)
+{
+	oPosition = mul(cameraModelViewProj, position);
+} // main

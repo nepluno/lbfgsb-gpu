@@ -1,0 +1,30 @@
+/*
+Guodong Rong
+
+FP_Flood.cg
+The fragment program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position        : WPOS,
+
+  		  out float4 oColor : COLOR,
+
+		  uniform samplerRECT  energyTex : TEXUNIT0)
+{
+	float2 coord;
+	float data[4];
+
+	coord = (position.xy-1.5)*2+1.5;
+	data[0] = texRECT(energyTex, coord).r;
+	data[1] = texRECT(energyTex, float2(coord.x+1, coord.y)).r;
+	data[2] = texRECT(energyTex, float2(coord.x, coord.y+1)).r;
+	data[3] = texRECT(energyTex, float2(coord.x+1, coord.y+1)).r;
+
+	oColor.rgb = data[0]+data[1]+data[2]+data[3];
+	oColor.a = 1;
+} // main

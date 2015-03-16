@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DC5076FF-7D1F-4A96-A919-EB6DB058A4BA}</ProjectGuid>
+    <ProjectName>voronoi_gpu</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 5.5.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.CPP.UpgradeFromVC71.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(NVSDKCOMPUTE_ROOT)\C\common\inc;$(CG_INC_PATH);$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(NVSDKCOMPUTE_ROOT)\C\common\lib\Win32;C:\Program Files %28x86%29\NVIDIA Corporation\Cg\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(NVCUDASAMPLES_ROOT)\common\inc;$(CG_INC_PATH);$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(NVCUDASAMPLES_ROOT)\common\lib\Win32;C:\Program Files %28x86%29\NVIDIA Corporation\Cg\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Release/voronoi.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>false</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\Release/voronoi.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Release/</AssemblerListingLocation>
+      <ObjectFileName>.\Release/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <OmitFramePointers>false</OmitFramePointers>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <FloatingPointExceptions>false</FloatingPointExceptions>
+      <CreateHotpatchableImage>false</CreateHotpatchableImage>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <OpenMPSupport>true</OpenMPSupport>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cublas.lib;cudart.lib;odbc32.lib;odbccp32.lib;opengl32.lib;glu32.lib;cg.lib;cgGL.lib;glew32.lib;freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Release/voronoi_gpu.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>.\Release/voronoi.pdb</ProgramDatabaseFile>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+      <Optimization>O3</Optimization>
+      <FastMath>true</FastMath>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <TypeLibraryName>.\Debug/voronoi.tlb</TypeLibraryName>
+      <HeaderFileName>
+      </HeaderFileName>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\Debug/voronoi.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\Debug/</AssemblerListingLocation>
+      <ObjectFileName>.\Debug/</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>cublas.lib;npp.lib;cutil32.lib;cudart.lib;odbc32.lib;odbccp32.lib;opengl32.lib;glu32.lib;glaux.lib;cg.lib;cgGL.lib;glew32.lib;freeglut.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>.\Debug/voronoi_gpu.exe</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>.\Debug/voronoi.pdb</ProgramDatabaseFile>
+      <GenerateMapFile>true</GenerateMapFile>
+      <MapFileName>.\Debug/voronoi.map</MapFileName>
+      <MapExports>false</MapExports>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <CudaCompile>
+      <CodeGeneration>compute_20,sm_20</CodeGeneration>
+    </CudaCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="VP_ComputeEnergy.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_ComputeEnergyCentroid.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_Deduction.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawNewSites.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawSites.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_DrawSitesOQ.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_FinalRender.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_Flood.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_Scatter.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="VP_ScatterCentroid.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile vp40 -o distrib/"%(Filename)".vp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).vp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_ComputeEnergy.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_ComputeEnergyCentroid.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_Deduction.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawNewSites.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawSites.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_DrawSitesOQ.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_FinalRender.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_Flood.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_Scatter.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FP_ScatterCentroid.cg">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">"$(CG_BIN_PATH)\cgc" -profile fp40 -o distrib/"%(Filename)".fp "%(Filename)".cg
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">distrib/%(Filename).fp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <None Include="icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="L-BFGS\lbfgsb.cpp" />
+    <ClCompile Include="voronoi.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Disabled</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">EnableFastChecks</BasicRuntimeChecks>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="L-BFGS\cutil_inline.h" />
+    <ClInclude Include="L-BFGS\lbfgsb.h" />
+    <ClInclude Include="L-BFGS\lbfgsbcuda.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="voronoi.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="voronoi.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="L-BFGS\active.cu" />
+    <CudaCompile Include="L-BFGS\bmv.cu" />
+    <CudaCompile Include="L-BFGS\cauchy.cu" />
+    <CudaCompile Include="L-BFGS\cmprlb.cu" />
+    <CudaCompile Include="L-BFGS\dpofa.cu" />
+    <CudaCompile Include="L-BFGS\formk.cu" />
+    <CudaCompile Include="L-BFGS\formt.cu" />
+    <CudaCompile Include="L-BFGS\freev.cu" />
+    <CudaCompile Include="L-BFGS\lnsrlb.cu" />
+    <CudaCompile Include="L-BFGS\matupd.cu" />
+    <CudaCompile Include="L-BFGS\minimize.cu" />
+    <CudaCompile Include="L-BFGS\projgr.cu" />
+    <CudaCompile Include="L-BFGS\subsm.cu" />
+    <CudaCompile Include="voronoi.cu" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 5.5.targets" />
+  </ImportGroup>
+</Project>

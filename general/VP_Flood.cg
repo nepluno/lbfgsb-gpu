@@ -1,0 +1,35 @@
+/*
+Guodong Rong
+
+VP_Flood.cg
+The vertex program for JFA
+
+Copyright (c) 2005-2006 
+School of Computing
+National University of Singapore
+All Rights Reserved.
+*/
+
+void main(float4 position  : POSITION,
+
+		  out float4 oPosition        : POSITION,
+		  out float4 oNeighborCoord01 : TEXCOORD0,
+		  out float4 oNeighborCoord23 : TEXCOORD1,
+		  out float4 oNeighborCoord56 : TEXCOORD2,
+		  out float4 oNeighborCoord78 : TEXCOORD3,
+
+	 	  uniform float4x4 cameraModelViewProj : state.matrix.mvp,
+		  uniform float2 size,
+		  uniform int steplength)
+{
+	float4 pos4;
+
+	oPosition = mul(cameraModelViewProj, position);
+
+	pos4 = float4(position.xy, position.xy);
+
+	oNeighborCoord01 = pos4 + float4(-steplength, -steplength, 0, -steplength);
+	oNeighborCoord23 = pos4 + float4(steplength, -steplength, -steplength, 0);
+	oNeighborCoord56 = pos4 + float4(steplength, 0, -steplength, steplength);
+	oNeighborCoord78 = pos4 + float4(0, steplength, steplength, steplength);
+} // main
