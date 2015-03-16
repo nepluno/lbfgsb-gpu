@@ -1,3 +1,5 @@
+# A GPU implementation of L-BFGS-B
+
 Nonlinear optimization is at the heart of many algorithms in engineering. Recently, due to the rise of general purpose graphics processing unit (GPGPU), it is promising to investigate the performance improvement of optimization methods after parallelized. While much has been done for simple optimization methods such as conjugate gradient, due to the strong dependencies contained, little has been done for other more sophisticated ones, such as the limited memory Broyden-Fletcher-Goldfarb-Shanno with boundaries (L-BFGS-B). In this software, for the first time, a parallelized implementation of L-BFGS-B on the GPU is introduced. We show how to remove those dependencies, and also demonstrate its significant speed-up for practical applications.
 
 Note:
