@@ -31,12 +31,11 @@ __global__ void kernel0(const int n, const real* l, const real* u,
   real ui = u[i];
   int iwi = -1;
 
-  if (nbdi > 0) {
-    if (nbdi <= 2) {
-      xi = maxr(xi, li);
-    } else {
-      xi = minr(xi, ui);
-    }
+  if ((nbdi == 1 || nbdi == 2) && xi < li) {
+      xi = li;
+  }
+  else if ((nbdi == 2 || nbdi == 3) && xi > ui) {
+      xi = ui;
   }
 
   if (nbdi == 2 && ui - li <= 0) {

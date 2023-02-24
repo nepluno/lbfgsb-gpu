@@ -15,6 +15,14 @@ add_definitions (-DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
 
 find_package(CUDA REQUIRED)
 
+foreach(ComputeCapability 60 61 70 72 75 86)
+  set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-gencode;arch=compute_${ComputeCapability},code=sm_${ComputeCapability})
+endforeach()
+
+if (MSVC)
+  set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS};-Xcompiler;$<$<CONFIG:Debug>:/MDd>$<$<CONFIG:Release>:/MD>)
+endif()
+
 if (CMAKE_BUILD_TYPE MATCHES Debug)
   add_definitions (-DDEBUG)
 endif (CMAKE_BUILD_TYPE MATCHES Debug)
