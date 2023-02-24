@@ -4,7 +4,7 @@
 -----------------
 cuLBFGSB is an open-source library for the GPU-implementation (with NVIDIA CUDA) of the nonlinear optimization algorithm named the limited memory Broyden-Fletcher-Goldfarb-Shanno with boundaries (L-BFGS-B). It is cross-platform (Windows and Linux) and licensed under the Mozilla Public License v. 2.0. 
 
-It has been recently tested with CUDA 11.2.
+It has been recently tested with CUDA 12.0.
 
 This library contains both the L-BFGS-B implementation on the GPU (with CUDA) and the original implementation on the CPU. It also includes a simple example code that solves the steady-state combustion problem (dsscfg) in MINPACK-2 (https://en.wikipedia.org/wiki/MINPACK) test to both the CPU and the CUDA version of L-BFGS-B.
 
