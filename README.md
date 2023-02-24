@@ -14,7 +14,7 @@ It is an updated implementation of the paper Parallel L-BFGS-B algorithm on GPU 
 
 Additionally, we provide a pre-compiled library for Windows x64 platform using CUDA 11.2. You may download the compiled library from: http://yunfei.work/lbfgsb/culbfgsb_compiled_CUDA_11_2_win64.zip , which contains both the DLL and the static library.
 
-Remark: the current version supports Hessian approximation m <= 8, which has been sufficient for most applications.
+Remark: the current version supports a fixed size of Hessian approximation `m == 8`, which has been sufficient for most applications.
 
 **Performance**
 -----------------
